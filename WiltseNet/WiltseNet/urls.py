@@ -1,4 +1,5 @@
-"""WiltseNet URL Configuration
+# -*- coding: utf-8 -*-
+"""WASsystem URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.10/topics/http/urls/
@@ -15,7 +16,20 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from WiltseApp import views
+from django.conf import settings
+from django.conf.urls.static import static
+from django.conf.urls import include
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$',views.mainpage, name='main'),
+    url(r'^insert/$',views.insert, name='insert'),
+    url(r'^document/$',views.docuview, name='document'),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url(r'^noticont/$', views.contview, name='contview')
 ]
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+    )
