@@ -29,20 +29,16 @@ def contview(request):
     output = Notice.objects.filter(num=getnum)
     return HttpResponse(output,content_type = "application/json")
     '''
+def doculist(request,category_id):
+    list = Handbook.objects.filter(code__codenumber=category_id)
+    return render(request, 'documents/document.html', {'list':list})
+
+@csrf_exempt
 def docuview(request):
-    
-    return render(request, 'documents/document.html')
-def insert(request):
-    
-    pdfForm = PdfForm()
-    
-    if request.method == 'GET':
-        pdfForm = PdfForm()
-    elif request.method == 'POST':
-        pdfForm = PdfForm(request.POST, request.FILES)
-        if pdfForm.is_valid():
-            insert = pdfForm.save(commit=False)
-            insert.user = request.user
-            insert.save()
-    
-    return render(request, 'insert.html',{'pdfForm':pdfForm})
+    import json
+    getnum = request.POST['num']
+    output = Handbook.objects.filter(num=getnum)
+    data = serializers.serialize('json', output)
+    struct = json.loads(data)
+    data = json.dumps(struct[0])
+    return HttpResponse(data)

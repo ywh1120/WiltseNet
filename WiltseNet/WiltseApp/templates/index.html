@@ -68,31 +68,32 @@
         
         function sideonoff(){
 			$('#cell-sidebar').toggle()
+			
 		}
     </script>
 </head>
 <body class="bg-steel">
-    <div class="app-bar fixed-top darcula" data-role="appbar" style="background-color:#59EB93">
+    <div class="app-bar fixed-top darcula" data-role="appbar" style="background-color:#2BB5F5">
         
-        <a class="app-bar-element branding" href="/">WiltseNet</a>
+        <a class="app-bar-element branding" href="/" style="background-color:#FFFFFF;padding-right: 0px; padding-left: 0px;"><img width="200" src="{% static 'assets/image/wiltse-title.jpg' %}"></a>
         <span class="app-bar-divider"></span>
         <ul class="app-bar-menu">
             <li><a href="">공지사항</a></li>
             <li>
                 <a href="" class="dropdown-toggle">핸드북</a>
                 <ul class="d-menu" data-role="dropdown">
-                    <li><a href="">안전보장활동</a></li>
-                    <li><a href="">지속적 질 향상</a></li>
-                    <li><a href="">진료전달체계와 평가</a></li>
-                    <li><a href="">환자진료</a></li>
-                    <li><a href="">수술 및 마취진정관리</a></li>
-                    <li><a href="">의약품 관리</a></li>
-                    <li><a href="">환자권리존중 및 보호</a></li>
-                    <li><a href="">경영 및 조직운영</a></li>
-                    <li><a href="">인적자원 관리</a></li>
-                    <li><a href="">감염관리</a></li>
-                    <li><a href="">안전한 시설 및 환경관리</a></li>
-                    <li><a href="">의료정보/의무기록관리</a></li>
+                    <li><a href="/document/100">안전보장활동</a></li>
+                    <li><a href="/document/101">지속적 질 향상</a></li>
+                    <li><a href="/document/102">진료전달체계와 평가</a></li>
+                    <li><a href="/document/103">환자진료</a></li>
+                    <li><a href="/document/104">수술 및 마취진정관리</a></li>
+                    <li><a href="/document/105">의약품 관리</a></li>
+                    <li><a href="/document/106">환자권리존중 및 보호</a></li>
+                    <li><a href="/document/107">경영 및 조직운영</a></li>
+                    <li><a href="/document/108">인적자원 관리</a></li>
+                    <li><a href="/document/109">감염관리</a></li>
+                    <li><a href="/document/110">안전한 시설 및 환경관리</a></li>
+                    <li><a href="/document/111">의료정보/의무기록관리</a></li>
                     
                 </ul>
             </li>
@@ -114,9 +115,9 @@
                     {% for notidata in list %}
                         <li>
                         	<a href="#" onclick="viewnotidata({{ notidata.num }})">
-                        	{% if notidata.code.codenum == 1 %}
+                        	{% if notidata.code.codenumber == 10 %}
                             	<span class="mif-broadcast icon"></span>
-                            {% elif notidata.code.codenum == 2 %}
+                            {% elif notidata.code.codenumber == 11 %}
                             	<span class="mif-injection icon"></span>
                             {% endif %}
                             	<span class="counter">{{ notidata.code.codename }}</span>
@@ -159,7 +160,11 @@
                     });
                 }
                 </script>
-                <div class="cell auto-size padding20 bg-white" id="cell-content">
+                <div class="cell auto-size padding20 bg-white" id="cell-content" 
+                style="background-image : url('{% static 'assets/image/wiltse.png' %}');
+                background-repeat:no-repeat;
+                background-attachment: fixed;
+    			background-position: center; ">
                     <h1 class="text-light"><label id="titlebox">윌스 공지사항</label>
 	                    <span class="place-right" style="font-size:20px;">
 		                    <label id="writer"></label>

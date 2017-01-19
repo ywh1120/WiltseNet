@@ -6,3 +6,4 @@ from WiltseApp.models import *
 admin.site.register(Graph)
 admin.site.register(Notice)
 admin.site.register(Code)
+admin.site.register(Handbook)

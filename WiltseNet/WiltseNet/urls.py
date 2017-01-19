@@ -24,10 +24,10 @@ from django.conf.urls import include
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',views.mainpage, name='main'),
-    url(r'^insert/$',views.insert, name='insert'),
-    url(r'^document/$',views.docuview, name='document'),
+    url(r'^document/(?P<category_id>\d+)/$',views.doculist, name='document'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-    url(r'^noticont/$', views.contview, name='contview')
+    url(r'^noticont/$', views.contview, name='contview'),
+    url(r'^docucont/$', views.docuview, name='docuview')
 ]
 if settings.DEBUG:
     urlpatterns += static(
