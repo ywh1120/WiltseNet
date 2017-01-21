@@ -74,14 +74,14 @@
 </head>
 <body class="bg-steel">
     <div class="app-bar fixed-top darcula" data-role="appbar">
-        <a class="app-bar-element branding" href="/" ><img width="45" src="{% static 'assets/image/wiltse_mini.png' %}">WiltseNet</a>
+        <a class="app-bar-element branding" href="/" style="padding-left:50px;padding-right:50px"><img width="45" src="{% static 'assets/image/wiltse_mini.png' %}">WiltseNet</a>
         
         <span class="app-bar-divider"></span>
         <ul class="app-bar-menu">
             <li><a href="/">공지사항</a></li>
             <li>
-                <a href="" class="dropdown-toggle">핸드북</a>
-                <ul class="d-menu" data-role="dropdown">
+                <a href="/document/100">핸드북</a>
+                <!-- <ul class="d-menu" data-role="dropdown">
                     <li><a href="/document/100">안전보장활동</a></li>
                     <li><a href="/document/101">지속적 질 향상</a></li>
                     <li><a href="/document/102">진료전달체계와 평가</a></li>
@@ -96,8 +96,25 @@
                     <li><a href="/document/111">의료정보/의무기록관리</a></li>
                     
                 </ul>
+                -->
             </li>
-            <li><a href="">규정</a></li>
+            <li><a href="/document2/100">규정</a></li>
+            <li>
+            	<a href="" class="dropdown-toggle">위원회 게시판</a>
+            	<ul class="d-menu" data-role="dropdown">
+            		<li><a href="">경영위원회</a></li>
+            		<li><a href="">감염관리위원회</a></li>
+            		<li><a href="">시설환경안전관리위원회</a></li>
+            		<li><a href="">QPS위원회</a></li>
+            		<li><a href="">의약품관리</a></li>
+            		<li><a href="">윤리위원회</a></li>
+            		<li><a href="">인사위원회</a></li>
+            		<li><a href="">의료기기심의위원회</a></li>
+            		<li><a href="">개인정보보호위원회</a></li>
+            		<li><a href="">의무기록위원회</a></li>
+            		<li><a href="">적정진료위원회</a></li>
+            	</ul>
+            </li>
             
         </ul>
 		<div class="app-bar-element place-right" onclick="sideonoff()">
@@ -108,7 +125,7 @@
     <div class="page-content">
         <div class="flex-grid no-responsive-future" style="height: 100%;">
             <div class="row" style="height: 100%">
-                <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
+                <div class="cell size-x300" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
                     <ul class="sidebar">
                     {% for docudata in list %}
                         <li>
@@ -139,19 +156,11 @@
 	                  				$('#writer').html(v['writer']);
                             	
                             	if(v['document']){
-                            		var options = {
-                            			    pdfOpenParams: {
-                            			        navpanes: 0,
-                            			        toolbar: 0,
-                            			        statusbar: 0,
-                            			        view: "FitV",
-                            			        pagemode: "thumbs",
-                            			        page: 2
-                            			    },
-                            			    forcePDFJS: true
-                            			};
-
-                            		PDFObject.embed(v['document'], "#contbox",options);
+                            		//alert(v['document']);
+                            		
+                            		//PDFObject.embed("/uploads/content/테스트%20123123/AStar-Algorithm.pdf", "#contbox");
+                            		//$('#contbox').html("<embed width='100%' height='100%' src='/uploads/"+v['document']+"' type='application/pdf'>");
+                            		$('#contbox').html("<iframe width='100%' height='100%' src='/uploads/"+v['document']+"'></iframe>");
                             	}
 							});
 
@@ -162,39 +171,27 @@
                     });
                 }
                 </script>
-                <style>
-				.pdfobject-container { height: 500px;}
-				.pdfobject { border: 1px solid #666; }
-				</style>
+
                 <div class="cell auto-size padding20 bg-white" id="cell-content">
-                    <h1 class="text-light"><label id="titlebox">핸드북</label>
-                    
-	                    <span class="place-right" style="font-size:20px;">
-		                    <label id="writer"></label>
-		                    <br>
-		                    <label id="date"></label>
-	                    </span>
-                    </h1>
-                    <hr class="thin bg-grayLighter">
-                    
-                    <button class="button alert" onclick="pushMessage('alert')">안전보장활동</button>
-                    <button class="button alert" onclick="pushMessage('alert')">진료전달체계와 평가</button>
-                    <button class="button alert" onclick="pushMessage('alert')">환자진료</button>
-                    <button class="button alert" onclick="pushMessage('alert')">수술 및 마취진정관리</button>
-                    <button class="button alert" onclick="pushMessage('alert')">의약품 관리</button>
+                    <div>
+                    <button class="button success block-shadow-success text-shadow" onclick="javascript:location.href='/document/100'">안전보장활동</button>
+                    <button class="button warning block-shadow-warning text-shadow" onclick="javascript:location.href='/document/101'">진료전달체계와 평가</button>
+                    <button class="button danger block-shadow-danger text-shadow" onclick="javascript:location.href='/document/102'">환자진료</button>
+                    <button class="button info block-shadow-info text-shadow" onclick="javascript:location.href='/document/103'">수술 및 마취진정관리</button>
+                    <button class="button bg-pink bg-active-darkPink fg-white block-shadow-info text-shadow" onclick="javascript:location.href='/document/104'">의약품 관리</button>
                     <button class="button alert" onclick="pushMessage('alert')">환자권리존중 및 보호</button>
+                    </div>
+                    <div>
                     <button class="button alert" onclick="pushMessage('alert')">경영 및 조직운영</button>
                     <button class="button alert" onclick="pushMessage('alert')">인적자원 관리</button>
                     <button class="button alert" onclick="pushMessage('alert')">감염관리</button>
                     <button class="button alert" onclick="pushMessage('alert')">안전한 시설 및 환경관리</button>
                     <button class="button alert" onclick="pushMessage('alert')">의료정보/의무기록관리</button>
-                    
+                    </div>
                     <hr class="thin bg-grayLighter">
                     
-                    <div id=contbox>
-                    
-
-
+                    <div id=contbox >
+                    	
 
  
                     </div>

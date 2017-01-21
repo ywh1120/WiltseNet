@@ -25,9 +25,11 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',views.mainpage, name='main'),
     url(r'^document/(?P<category_id>\d+)/$',views.doculist, name='document'),
+    url(r'^document2/(?P<category_id>\d+)/$',views.docu2list, name='document2'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^noticont/$', views.contview, name='contview'),
-    url(r'^docucont/$', views.docuview, name='docuview')
+    url(r'^docucont/$', views.docuview, name='docuview'),
+    url(r'^docu2cont/$', views.docu2view, name='docu2view')
 ]
 if settings.DEBUG:
     urlpatterns += static(

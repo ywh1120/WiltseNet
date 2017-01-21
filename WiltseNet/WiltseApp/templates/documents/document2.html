@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Metro, a sleek, intuitive, and powerful framework for faster and easier web development for Windows Metro Style.">
+    <meta name="keywords" content="HTML, CSS, JS, JavaScript, framework, metro, front-end, frontend, web development">
+    <meta name="author" content="Sergey Pimenov and Metro UI CSS contributors">
+	{% load static %}
+    <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
+
+    <title>WiltseNet</title>
+	
+    
+	<link rel="stylesheet" href="{% static 'assets/css/metro.css' %}"/>
+	<link rel="stylesheet" href="{% static 'assets/css/metro-icons.css' %}"/>
+	<link rel="stylesheet" href="{% static 'assets/css/metro-responsive.css' %}"/>
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/metro.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.dataTables.min.js' %}"></script>
+	<script src="{% static 'assets/js/pdfobject.js' %}"></script>
+	
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+        }
+        .page-content {
+            padding-top: 3.125rem;
+            min-height: 100%;
+            height: 100%;
+        }
+        .table .input-control.checkbox {
+            line-height: 1;
+            min-height: 0;
+            height: auto;
+        }
+
+        @media screen and (max-width: 800px){
+            #cell-sidebar {
+                flex-basis: 52px;
+            }
+            #cell-content {
+                flex-basis: calc(100% - 52px);
+            }
+        }
+    </style>
+
+    <script>
+        function pushMessage(t){
+            var mes = 'Info|Implement independently';
+            $.Notify({
+                caption: mes.split("|")[0],
+                content: mes.split("|")[1],
+                type: t
+            });
+        }
+
+        $(function(){
+            $('.sidebar').on('click', 'li', function(){
+                if (!$(this).hasClass('active')) {
+                    $('.sidebar li').removeClass('active');
+                    $(this).addClass('active');
+                }
+            })
+        })
+        
+        function sideonoff(){
+			$('#cell-sidebar').toggle()
+		}
+    </script>
+</head>
+<body class="bg-steel" style="background-color:transparent">
+    <div class="app-bar fixed-top darcula" data-role="appbar">
+        <a class="app-bar-element branding" href="/" style="padding-left:50px;padding-right:50px"><img width="45" src="{% static 'assets/image/wiltse_mini.png' %}">WiltseNet</a>
+        
+        <span class="app-bar-divider"></span>
+        <ul class="app-bar-menu">
+            <li><a href="/">공지사항</a></li>
+            <li>
+                <a href="/document/100">핸드북</a>
+                <!-- <ul class="d-menu" data-role="dropdown">
+                    <li><a href="/document/100">안전보장활동</a></li>
+                    <li><a href="/document/101">지속적 질 향상</a></li>
+                    <li><a href="/document/102">진료전달체계와 평가</a></li>
+                    <li><a href="/document/103">환자진료</a></li>
+                    <li><a href="/document/104">수술 및 마취진정관리</a></li>
+                    <li><a href="/document/105">의약품 관리</a></li>
+                    <li><a href="/document/106">환자권리존중 및 보호</a></li>
+                    <li><a href="/document/107">경영 및 조직운영</a></li>
+                    <li><a href="/document/108">인적자원 관리</a></li>
+                    <li><a href="/document/109">감염관리</a></li>
+                    <li><a href="/document/110">안전한 시설 및 환경관리</a></li>
+                    <li><a href="/document/111">의료정보/의무기록관리</a></li>
+                    
+                </ul>
+                -->
+            </li>
+            <li><a href="">규정</a></li>
+            <li>
+            	<a href="" class="dropdown-toggle">위원회 게시판</a>
+            	<ul class="d-menu" data-role="dropdown">
+            		<li><a href="">경영위원회</a></li>
+            		<li><a href="">감염관리위원회</a></li>
+            		<li><a href="">시설환경안전관리위원회</a></li>
+            		<li><a href="">QPS위원회</a></li>
+            		<li><a href="">의약품관리</a></li>
+            		<li><a href="">윤리위원회</a></li>
+            		<li><a href="">인사위원회</a></li>
+            		<li><a href="">의료기기심의위원회</a></li>
+            		<li><a href="">개인정보보호위원회</a></li>
+            		<li><a href="">의무기록위원회</a></li>
+            		<li><a href="">적정진료위원회</a></li>
+            	</ul>
+            </li>
+            
+        </ul>
+		<div class="app-bar-element place-right" onclick="sideonoff()">
+            <span class="toggle" ><span class="mif-menu"></span>SideBar</span>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="flex-grid no-responsive-future" style="height: 100%;">
+            <div class="row" style="height: 100%">
+                <div class="cell size-x300" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
+                    <ul class="sidebar">
+                    {% for docudata in list %}
+                        <li>
+                        	<a href="#" onclick="viewnotidata({{ docudata.num }})">
+                            	<span class="mif-apps icon"></span>
+                            	<span class="counter">{{docudata.code.codename}}</span>
+                            	<span class="title">{{docudata.title}}</span>
+                        	</a>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </div>
+                <script>
+                function viewnotidata(num){
+                	//alert(num);
+                	$.ajax({
+                        url: "/docu2cont/",
+                        type: "POST",
+                        data: {
+                            'num': num
+                        },
+                        dataType:'json',
+                        success: function (response) {
+                            $.each(response,function(i,v){
+                            	if(v['title'])
+	                  				$('#titlebox').html(v['title']);
+                            	if(v['writer'])
+	                  				$('#writer').html(v['writer']);
+                            	
+                            	if(v['document']){
+                            		//alert(v['document']);
+                            		
+                            		//PDFObject.embed("/uploads/content/테스트%20123123/AStar-Algorithm.pdf", "#contbox");
+                            		//$('#contbox').html("<embed width='100%' height='100%' src='/uploads/"+v['document']+"' type='application/pdf'>");
+                            		$('#contbox').html("<iframe width='100%' height='100%' ALLOWTRANSPARENCY='true' src='/uploads/"+v['document']+"#view=FitH&toolbar=1'></iframe>");
+                            	}
+							});
+
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    });
+                }
+                </script>
+
+                <div class="cell auto-size padding20 bg-white" id="cell-content">
+                    <div>
+                    <button class="button rounded success block-shadow-success text-shadow" onclick="javascript:location.href='/document2/100'">안전보장활동</button>
+                    <button class="button warning block-shadow-warning text-shadow" onclick="javascript:location.href='/document2/101'">진료전달체계와 평가</button>
+                    <button class="button danger block-shadow-danger text-shadow" onclick="javascript:location.href='/document2/102'">환자진료</button>
+                    <button class="button info block-shadow-info text-shadow" onclick="javascript:location.href='/document2/103'">수술 및 마취진정관리</button>
+                    <button class="button bg-pink bg-active-darkPink fg-white block-shadow-info text-shadow" onclick="pushMessage('alert')">의약품 관리</button>
+                    <button class="button alert" onclick="pushMessage('alert')">환자권리존중 및 보호</button>
+                    </div>
+                    <div>
+                    <button class="button alert" onclick="pushMessage('alert')">경영 및 조직운영</button>
+                    <button class="button alert" onclick="pushMessage('alert')">인적자원 관리</button>
+                    <button class="button alert" onclick="pushMessage('alert')">감염관리</button>
+                    <button class="button alert" onclick="pushMessage('alert')">안전한 시설 및 환경관리</button>
+                    <button class="button alert" onclick="pushMessage('alert')">의료정보/의무기록관리</button>
+                    </div>
+                    <hr class="thin bg-grayLighter">
+                    
+                    <div id=contbox style="height:90%">
+                    	
+
+ 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

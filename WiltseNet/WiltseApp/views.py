@@ -33,11 +33,25 @@ def doculist(request,category_id):
     list = Handbook.objects.filter(code__codenumber=category_id)
     return render(request, 'documents/document.html', {'list':list})
 
+def docu2list(request,category_id):
+    list = Regulation.objects.filter(code__codenumber=category_id)
+    return render(request, 'documents/document2.html', {'list':list})
+
 @csrf_exempt
 def docuview(request):
     import json
     getnum = request.POST['num']
     output = Handbook.objects.filter(num=getnum)
+    data = serializers.serialize('json', output)
+    struct = json.loads(data)
+    data = json.dumps(struct[0])
+    return HttpResponse(data)
+
+@csrf_exempt
+def docu2view(request):
+    import json
+    getnum = request.POST['num']
+    output = Regulation.objects.filter(num=getnum)
     data = serializers.serialize('json', output)
     struct = json.loads(data)
     data = json.dumps(struct[0])
