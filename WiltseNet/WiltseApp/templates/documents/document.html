@@ -16,6 +16,9 @@
 	<link rel="stylesheet" href="{% static 'assets/css/metro.css' %}"/>
 	<link rel="stylesheet" href="{% static 'assets/css/metro-icons.css' %}"/>
 	<link rel="stylesheet" href="{% static 'assets/css/metro-responsive.css' %}"/>
+	<link rel="stylesheet" href="{% static 'assets/css/metro-schemes.css' %}"/>
+	<link rel="stylesheet" href="{% static 'assets/css/metro-colors.css' %}"/>
+	<link rel="stylesheet" href="{% static 'assets/css/metro-rtl.css' %}"/>
     <script src="{% static 'assets/js/jquery.min.js' %}"></script>
     <script src="{% static 'assets/js/metro.js' %}"></script>
     <script src="{% static 'assets/js/jquery.dataTables.min.js' %}"></script>
@@ -72,9 +75,15 @@
 		}
     </script>
 </head>
+<style type="text/css">
+.app-bar-menu a{
+	text-align:center;
+	width:150px;
+}
+</style>
 <body class="bg-steel">
-    <div class="app-bar fixed-top darcula" data-role="appbar">
-        <a class="app-bar-element branding" href="/" style="padding-left:50px;padding-right:50px"><img width="45" src="{% static 'assets/image/wiltse_mini.png' %}">WiltseNet</a>
+    <div class="app-bar fixed-top Navy bg-blue" data-role="appbar">
+        <a class="app-bar-element branding" href="/" style="padding-left:5.8%;padding-right:5.8%"><img width="45" src="{% static 'assets/image/wiltse_mini.png' %}">WiltseNet</a>
         
         <span class="app-bar-divider"></span>
         <ul class="app-bar-menu">
@@ -125,7 +134,7 @@
     <div class="page-content">
         <div class="flex-grid no-responsive-future" style="height: 100%;">
             <div class="row" style="height: 100%">
-                <div class="cell size-x300" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
+                <div class="cell size-x300 bg-blue" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
                     <ul class="sidebar">
                     {% for docudata in list %}
                         <li>
@@ -174,19 +183,19 @@
 
                 <div class="cell auto-size padding20 bg-white" id="cell-content">
                     <div>
-                    <button class="button success block-shadow-success text-shadow" onclick="javascript:location.href='/document/100'">안전보장활동</button>
-                    <button class="button warning block-shadow-warning text-shadow" onclick="javascript:location.href='/document/101'">진료전달체계와 평가</button>
-                    <button class="button danger block-shadow-danger text-shadow" onclick="javascript:location.href='/document/102'">환자진료</button>
-                    <button class="button info block-shadow-info text-shadow" onclick="javascript:location.href='/document/103'">수술 및 마취진정관리</button>
-                    <button class="button bg-pink bg-active-darkPink fg-white block-shadow-info text-shadow" onclick="javascript:location.href='/document/104'">의약품 관리</button>
-                    <button class="button alert" onclick="pushMessage('alert')">환자권리존중 및 보호</button>
+                    <button class="button rounded bg-green fg-white" onclick="javascript:location.href='/document/100'">안전보장활동</button>
+                    <button class="button rounded bg-darkIndigo fg-white" onclick="javascript:location.href='/document/101'">진료전달체계와 평가</button>
+                    <button class="button rounded bg-red fg-white" onclick="javascript:location.href='/document/102'">환자진료</button>
+                    <button class="button rounded bg-blue fg-white" onclick="javascript:location.href='/document/103'">수술 및 마취진정관리</button>
+                    <button class="button rounded bg-pink fg-white" onclick="javascript:location.href='/document/104">의약품 관리</button>
+                    <button class="button rounded bg-amber fg-white" onclick="javascript:location.href='/document/105">환자권리존중 및 보호</button>
                     </div>
                     <div>
-                    <button class="button alert" onclick="pushMessage('alert')">경영 및 조직운영</button>
-                    <button class="button alert" onclick="pushMessage('alert')">인적자원 관리</button>
-                    <button class="button alert" onclick="pushMessage('alert')">감염관리</button>
-                    <button class="button alert" onclick="pushMessage('alert')">안전한 시설 및 환경관리</button>
-                    <button class="button alert" onclick="pushMessage('alert')">의료정보/의무기록관리</button>
+                    <button class="button rounded bg-darkCyan fg-white" onclick="javascript:location.href='/document/106">경영 및 조직운영</button>
+                    <button class="button rounded bg-darkBrown fg-white" onclick="javascript:location.href='/document/107">인적자원 관리</button>
+                    <button class="button rounded bg-darkEmerald fg-white" onclick="javascript:location.href='/document/108">감염관리</button>
+                    <button class="button rounded bg-lightRed fg-white" onclick="javascript:location.href='/document/109">안전한 시설 및 환경관리</button>
+                    <button class="button rounded bg-lightOrange fg-white" onclick="javascript:location.href='/document/110">의료정보/의무기록관리</button>
                     </div>
                     <hr class="thin bg-grayLighter">
                     
