@@ -78,13 +78,18 @@
 <style type="text/css">
 .app-bar-menu a{
 	text-align:center;
-	width:150px;
+	width:170px;
 }
 </style>
 <body class="bg-steel">
-    <div class="app-bar fixed-top green" data-role="appbar">
+    <div class="app-bar fixed-top Navy ribbed-blue" data-role="appbar">
         
-        <a class="app-bar-element branding" href="/" style="padding-left:5.8%;padding-right:5.8%"><img src="{% static 'assets/image/wiltse_mini.png' %}">WiltseNet</a>
+        <div class="app-bar-element place-left" onclick="sideonoff()">
+            <span class="mif-menu"></span>
+        </div>
+        <a class="app-bar-element branding" href="/" style="padding-left:54px;padding-right:55px">
+        	<img width="45" style="margin-right:20px" src="{% static 'assets/image/wiltse_mini.png' %}">WiltseNet
+        </a>
         <span class="app-bar-divider"></span>
         <ul class="app-bar-menu">
             <li><a href="">공지사항</a></li>
@@ -108,7 +113,7 @@
                 -->
             </li>
             <li ><a href="/document2/100">규정</a></li>
-            <li style="width:150px;">
+            <li>
             	<a href="" class="dropdown-toggle">위원회 게시판</a>
             	<ul class="d-menu" data-role="dropdown">
             		<li><a href="">경영위원회</a></li>
@@ -126,17 +131,14 @@
             </li>
         </ul>
 		
-        <div class="app-bar-element place-right" onclick="sideonoff()">
-            <span class="toggle" ><span class="mif-menu"></span>SideBar</span>
-        </div>
-        
+       
     </div>
 
     <div class="page-content">
         <div class="flex-grid no-responsive-future" style="height: 100%;">
             <div class="row" style="height: 100%">
-                <div class="cell size-x300 bg-green" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
-                    <ul class="sidebar bg-green">
+                <div class="cell size-x300 bg-blue" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
+                    <ul class="sidebar bg-blue">
                     {% for notidata in list %}
                         <li>
                         	<a href="#" onclick="viewnotidata({{ notidata.num }})">

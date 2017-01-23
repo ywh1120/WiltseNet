@@ -78,12 +78,17 @@
 <style type="text/css">
 .app-bar-menu a{
 	text-align:center;
-	width:150px;
+	width:170px;
 }
 </style>
 <body class="bg-steel" style="background-color:transparent">
-    <div class="app-bar fixed-top orange" data-role="appbar">
-        <a class="app-bar-element branding" href="/" style="padding-left:5.8%;padding-right:5.8%"><img width="45" src="{% static 'assets/image/wiltse_mini.png' %}">WiltseNet</a>
+    <div class="app-bar fixed-top ribbed-amber" data-role="appbar">
+    	<div class="app-bar-element place-left" onclick="sideonoff()">
+            <span class="mif-menu"></span>
+        </div>
+        <a class="app-bar-element branding" href="/" style="padding-left:54px;padding-right:55px">
+        	<img width="45" style="margin-right:20px" src="{% static 'assets/image/wiltse_mini.png' %}">WiltseNet
+        </a>
         
         <span class="app-bar-divider"></span>
         <ul class="app-bar-menu">
@@ -126,16 +131,14 @@
             </li>
             
         </ul>
-		<div class="app-bar-element place-right" onclick="sideonoff()">
-            <span class="toggle" ><span class="mif-menu"></span>SideBar</span>
-        </div>
+		
     </div>
 
     <div class="page-content">
         <div class="flex-grid no-responsive-future" style="height: 100%;">
             <div class="row" style="height: 100%">
-                <div class="cell size-x300 bg-orange" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
-                    <ul class="sidebar bg-orange">
+                <div class="cell size-x300 bg-amber" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
+                    <ul class="sidebar bg-amber">
                     {% for docudata in list %}
                         <li>
                         	<a href="#" onclick="viewnotidata({{ docudata.num }})">
@@ -169,7 +172,7 @@
                             		
                             		//PDFObject.embed("/uploads/content/테스트%20123123/AStar-Algorithm.pdf", "#contbox");
                             		//$('#contbox').html("<embed width='100%' height='100%' src='/uploads/"+v['document']+"' type='application/pdf'>");
-                            		$('#contbox').html("<iframe width='100%' height='100%' ALLOWTRANSPARENCY='true' src='/uploads/"+v['document']+"#view=FitH&toolbar=1'></iframe>");
+                            		$('#contbox').html("<iframe width='100%' height='100%' ALLOWTRANSPARENCY='true' src='/uploads/"+v['document']+"#view=FitH&toolbar=0'></iframe>");
                             	}
 							});
 
