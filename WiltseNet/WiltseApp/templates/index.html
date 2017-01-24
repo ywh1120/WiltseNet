@@ -22,7 +22,9 @@
     <script src="{% static 'assets/js/jquery.min.js' %}"></script>
     <script src="{% static 'assets/js/metro.js' %}"></script>
     <script src="{% static 'assets/js/jquery.dataTables.min.js' %}"></script>
-
+	<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+	<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+	
     <style>
         html, body {
             height: 100%;
@@ -168,6 +170,7 @@
                         dataType:'json',
                         success: function (response) {
                         	$('#cell-content').css('display','inline');
+                        	$('#cell-write-content').css('display','none');
                             $.each(response,function(i,v){
                             	
                             	if(v['title'])
@@ -191,6 +194,7 @@
                     });
                 }
                 </script>
+                <!-- 공지사항 보는 페이지 -->
                 <div class="cell auto-size padding20 bg-white" id="cell-content" 
                 style="
     			display:none">
@@ -205,6 +209,42 @@
                     <div id=contbox></div>
                     <hr class="thin bg-grayLighter">
                     <div id="filebox"></div>
+                </div>
+                <!-- 글쓰기 페이지 -->
+                <div class="cell auto-size padding20 bg-white" id="cell-write-content" 
+                style="
+    			display:inline">
+    				<form action="/notice_write/" method="post" enctype="multipart/form-data">
+    				{% csrf_token %}
+	                    <h1 class="text-light"><label id="titlebox">공지사항 글쓰기</label></h1>
+	                    <hr class="thin bg-grayLighter">
+	                    <h5 class="text-light"><label>제목</label></h5>
+	                    <div class="input-control text">
+						    <input id="titlebox" type="text">
+						</div>
+	                    <h5 class="text-light"><label>내용</label></h5>
+	                    <div class="input-control textarea">
+						    <textarea id="writecontent"></textarea>
+						</div>
+						<h5 class="text-light"><label>파일첨부</label></h5>
+						<div class="input-control file" data-role="input">
+						    <input id="uploadfile" type="file">
+						    <button class="button"><span class="mif-folder"></span></button>
+						</div>
+						<h5 class="text-light"><label>분류</label></h5>
+						<div class="input-control select">
+						    <select id="cate">
+						    {% for cate in category %}
+						        <option value="{{ cate.codenumber }}">{{ cate.codename }}</option>					    
+						    {% endfor %}
+						    </select>
+						</div>
+						<input type="submit" value="Submit">
+					</form>
+					
+					<script>
+					CKEDITOR.replace('writecontent')
+					</script>
                 </div>
             </div>
         </div>

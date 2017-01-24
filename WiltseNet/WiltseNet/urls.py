@@ -24,6 +24,7 @@ from django.conf.urls import include
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',views.mainpage, name='main'),
+    url(r'^notice_write/$',views.notice_write, name='notice_write'),
     url(r'^document/(?P<category_id>\d+)/$',views.doculist, name='document'),
     url(r'^document2/(?P<category_id>\d+)/$',views.docu2list, name='document2'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),

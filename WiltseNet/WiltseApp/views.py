@@ -13,7 +13,22 @@ from django.core import serializers
 # Create your views here.
 def mainpage(request):
     list = Notice.objects.filter()
-    return render(request,'index.html',{'list':list})
+    cate = Code.objects.filter(where="공지사항")
+    return render(request,'index.html',{'list':list,'category':cate})
+
+@csrf_exempt
+def notice_write(request):
+    #if request.method == 'POST':
+        #form = ImageUploadForm(request.POST, request.FILES)
+        
+        #if form.is_valid():
+            #m = ExampleModel.objects.get(pk=course_id)
+            #m.model_pic = form.cleaned_data['image']
+            #m.save()
+        
+    list = Notice.objects.filter()
+    cate = Code.objects.filter(where="공지사항")
+    return render(request,'index.html',{'list':list,'category':cate})
 
 @csrf_exempt
 def contview(request):
