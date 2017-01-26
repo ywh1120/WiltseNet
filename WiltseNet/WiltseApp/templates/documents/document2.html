@@ -82,11 +82,11 @@
 }
 </style>
 <body class="bg-steel" style="background-color:transparent">
-    <div class="app-bar fixed-top ribbed-amber" data-role="appbar">
+    <div class="app-bar fixed-top orange ribbed-amber" data-role="appbar">
     	<div class="app-bar-element place-left" onclick="sideonoff()">
-            <span class="mif-menu"></span>
+            <span id="toggle-tiles-dropdown" class="mif-apps mif-2x"></span>
         </div>
-        <a class="app-bar-element branding" href="/" style="padding-left:54px;padding-right:55px">
+        <a class="app-bar-element branding" href="/" style="padding-left:47px;padding-right:48px">
         	<img width="45" style="margin-right:20px" src="{% static 'assets/image/wiltse_mini.png' %}">WiltseNet
         </a>
         
@@ -132,6 +132,7 @@
             
         </ul>
 		
+		
     </div>
 
     <div class="page-content">
@@ -142,9 +143,9 @@
                     {% for docudata in list %}
                         <li>
                         	<a href="#" onclick="viewnotidata({{ docudata.num }})">
-                            	<span class="mif-apps icon"></span>
+                            	<span class="mif-file-pdf icon"></span>
                             	<span class="counter">{{docudata.code.codename}}</span>
-                            	<span class="title">{{docudata.title}}</span>
+                            	<span class="title" style="width:200px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">{{docudata.title}}</span>
                         	</a>
                         </li>
                     {% endfor %}
@@ -187,18 +188,20 @@
                 <div class="cell auto-size padding20 bg-white" id="cell-content">
                     <div>
                     <button class="button rounded bg-green fg-white" onclick="javascript:location.href='/document2/100'">안전보장활동</button>
-                    <button class="button rounded bg-darkIndigo fg-white" onclick="javascript:location.href='/document2/101'">진료전달체계와 평가</button>
-                    <button class="button rounded bg-red fg-white" onclick="javascript:location.href='/document2/102'">환자진료</button>
-                    <button class="button rounded bg-blue fg-white" onclick="javascript:location.href='/document2/103'">수술 및 마취진정관리</button>
-                    <button class="button rounded bg-pink fg-white" onclick="javascript:location.href='/document2/104">의약품 관리</button>
-                    <button class="button rounded bg-amber fg-white" onclick="javascript:location.href='/document2/105">환자권리존중 및 보호</button>
+                    <button class="button rounded bg-teal fg-white" onclick="javascript:location.href='/document2/101'">지속적 질 향상</button>
+                    <button class="button rounded bg-darkIndigo fg-white" onclick="javascript:location.href='/document2/102'">진료전달체계와 평가</button>
+                    <button class="button rounded bg-red fg-white" onclick="javascript:location.href='/document2/103'">환자진료</button>
+                    <button class="button rounded bg-blue fg-white" onclick="javascript:location.href='/document2/104'">수술 및 마취진정관리</button>
+                    <button class="button rounded bg-pink fg-white" onclick="javascript:location.href='/document2/105'">의약품 관리</button>
+                    
                     </div>
                     <div>
-                    <button class="button rounded bg-darkCyan fg-white" onclick="javascript:location.href='/document2/106">경영 및 조직운영</button>
-                    <button class="button rounded bg-darkBrown fg-white" onclick="javascript:location.href='/document2/107">인적자원 관리</button>
-                    <button class="button rounded bg-darkEmerald fg-white" onclick="javascript:location.href='/document2/108">감염관리</button>
-                    <button class="button rounded bg-lightRed fg-white" onclick="javascript:location.href='/document2/109">안전한 시설 및 환경관리</button>
-                    <button class="button rounded bg-lightOrange fg-white" onclick="javascript:location.href='/document2/110">의료정보/의무기록관리</button>
+                    <button class="button rounded bg-amber fg-white" onclick="javascript:location.href='/document2/106'">환자권리존중 및 보호</button>
+                    <button class="button rounded bg-darkCyan fg-white" onclick="javascript:location.href='/document2/107'">경영 및 조직운영</button>
+                    <button class="button rounded bg-darkBrown fg-white" onclick="javascript:location.href='/document2/108'">인적자원 관리</button>
+                    <button class="button rounded bg-darkEmerald fg-white" onclick="javascript:location.href='/document2/109'">감염관리</button>
+                    <button class="button rounded bg-lightRed fg-white" onclick="javascript:location.href='/document2/110'">안전한 시설 및 환경관리</button>
+                    <button class="button rounded bg-lightOrange fg-white" onclick="javascript:location.href='/document2/111'">의료정보/의무기록관리</button>
                     </div>
                     <hr class="thin bg-grayLighter">
                     

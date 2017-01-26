@@ -72,6 +72,8 @@
         })
         
         function sideonoff(){
+        	//toggleMetroCharm(el[, position]);
+        	//hideMetroCharm(el);
 			$('#cell-sidebar').toggle()
 			
 		}
@@ -87,16 +89,17 @@
     <div class="app-bar fixed-top Navy ribbed-blue" data-role="appbar">
         
         <div class="app-bar-element place-left" onclick="sideonoff()">
-            <span class="mif-menu"></span>
+            <span id="toggle-tiles-dropdown" class="mif-apps mif-2x"></span>
         </div>
-        <a class="app-bar-element branding" href="/" style="padding-left:54px;padding-right:55px">
+        
+        <a class="app-bar-element branding" href="/" style="padding-left:47px;padding-right:48px">
         	<img width="45" style="margin-right:20px" src="{% static 'assets/image/wiltse_mini.png' %}">WiltseNet
         </a>
         <span class="app-bar-divider"></span>
         <ul class="app-bar-menu">
             <li><a href="">공지사항</a></li>
             <li>
-                <a href="/document/100">핸드북</a>
+                <a href="">핸드북</a>
                 <!-- <ul class="d-menu" data-role="dropdown">
                     <li><a href="/document/100">안전보장활동</a></li>
                     <li><a href="/document/101">지속적 질 향상</a></li>
@@ -114,7 +117,7 @@
                 </ul>
                 -->
             </li>
-            <li ><a href="/document2/100">규정</a></li>
+            <li ><a href="">규정</a></li>
             <li>
             	<a href="" class="dropdown-toggle">위원회 게시판</a>
             	<ul class="d-menu" data-role="dropdown">
@@ -132,8 +135,46 @@
             	</ul>
             </li>
         </ul>
-		
+		{% if user.is_authenticated %}
        
+       <div class="app-bar-element place-right">
+          <a href="{% url 'logout' %}?next=/" class="toggle fg-white"><span class="mif-exit"></span> Logout</a>
+       </div>
+       <div class="app-bar-element place-right" onclick="javascript:$('#cell-content').css('display','none');$('#cell-write-content').css('display','inline');">
+       		<a class="toggle fg-white"><span class="mif-pencil"></span> Write</a>
+       </div>
+       {% else %}
+       <div class="app-bar-element place-right">
+          <a class="dropdown-toggle fg-white"><span class="mif-enter"></span> Login</a>
+          <div class="app-bar-drop-container bg-white fg-dark place-right"
+                  data-role="dropdown" data-no-close="true">
+              <div class="padding20">
+                  <form method="post" action="{% url 'login' %}">
+                  {% csrf_token %}
+                      <h4 class="text-light">Login to service...</h4>
+                      <div class="input-control text">
+                          <span class="mif-user prepend-icon"></span>
+                          <input type="text" name="username" id="username"/>
+                      </div>
+                      <div class="input-control text">
+                          <span class="mif-lock prepend-icon"></span>
+                          <input type="password" name="pwd" id="pwd"/>
+                      </div>
+                      <label class="input-control checkbox small-check">
+                          <input type="checkbox">
+                          <span class="check"></span>
+                          <span class="caption">Remember me</span>
+                      </label>
+                      <div class="form-actions">
+                          <button type="submit" class="button">Login</button>
+                          <button type="button" onclick="javascript:$('#username').val('');$('#pwd').val('')" class="button link">Cancel</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+       </div>
+       
+       {% endif %}
     </div>
 
     <div class="page-content">
@@ -148,11 +189,15 @@
                             	<span class="mif-broadcast icon"></span>
                             {% elif notidata.code.codenumber == 11 %}
                             	<span class="mif-injection icon"></span>
+                            {% elif notidata.code.codenumber == 12 %}
+                            	<span class="mif-stethoscope icon"></span>
+                            {% elif notidata.code.codenumber == 13 %}
+                            	<span class="mif-wrench icon"></span>
                             {% elif notidata.code.codenumber == 14 %}
                             	<span class="mif-justice icon"></span>
                             {% endif %}
                             	<span class="counter">{{ notidata.code.codename }}</span>
-                            	<span class="title">{{ notidata.title }}</span>
+                            	<span class="title" style="width:200px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">{{ notidata.title }}</span>
                         	</a>
                         </li>
                     {% endfor %}
@@ -196,8 +241,7 @@
                 </script>
                 <!-- 공지사항 보는 페이지 -->
                 <div class="cell auto-size padding20 bg-white" id="cell-content" 
-                style="
-    			display:none">
+                style="display:none">
                     <h1 class="text-light"><label id="titlebox">윌스 공지사항</label>
 	                    <span class="place-right" style="font-size:20px;">
 		                    <label id="writer"></label>
@@ -212,34 +256,35 @@
                 </div>
                 <!-- 글쓰기 페이지 -->
                 <div class="cell auto-size padding20 bg-white" id="cell-write-content" 
-                style="
-    			display:inline">
+                style="display:none">
     				<form action="/notice_write/" method="post" enctype="multipart/form-data">
     				{% csrf_token %}
 	                    <h1 class="text-light"><label id="titlebox">공지사항 글쓰기</label></h1>
 	                    <hr class="thin bg-grayLighter">
 	                    <h5 class="text-light"><label>제목</label></h5>
 	                    <div class="input-control text">
-						    <input id="titlebox" type="text">
+						    <input id="titlebox" name="titlebox" type="text">
 						</div>
 	                    <h5 class="text-light"><label>내용</label></h5>
 	                    <div class="input-control textarea">
-						    <textarea id="writecontent"></textarea>
+						    <textarea name="writecontent" id="writecontent"></textarea>
 						</div>
 						<h5 class="text-light"><label>파일첨부</label></h5>
 						<div class="input-control file" data-role="input">
-						    <input id="uploadfile" type="file">
+						    <input id="uploadfile" name="uploadfile" type="file">
 						    <button class="button"><span class="mif-folder"></span></button>
 						</div>
 						<h5 class="text-light"><label>분류</label></h5>
 						<div class="input-control select">
-						    <select id="cate">
+						    <select id="cate" name="cate">
 						    {% for cate in category %}
 						        <option value="{{ cate.codenumber }}">{{ cate.codename }}</option>					    
 						    {% endfor %}
 						    </select>
 						</div>
-						<input type="submit" value="Submit">
+						<div>
+						<input type="submit" value="등록">
+						</div>
 					</form>
 					
 					<script>

@@ -20,6 +20,7 @@ from WiltseApp import views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import include
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -30,7 +31,10 @@ urlpatterns = [
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^noticont/$', views.contview, name='contview'),
     url(r'^docucont/$', views.docuview, name='docuview'),
-    url(r'^docu2cont/$', views.docu2view, name='docu2view')
+    url(r'^docu2cont/$', views.docu2view, name='docu2view'),
+    url(r'^login/$', views.login_ajax, name='login'),
+    url(r'^logout/$', auth_views.logout, name='logout'),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(

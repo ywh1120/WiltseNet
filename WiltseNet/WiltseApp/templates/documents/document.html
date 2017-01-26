@@ -19,11 +19,13 @@
 	<link rel="stylesheet" href="{% static 'assets/css/metro-schemes.css' %}"/>
 	<link rel="stylesheet" href="{% static 'assets/css/metro-colors.css' %}"/>
 	<link rel="stylesheet" href="{% static 'assets/css/metro-rtl.css' %}"/>
+	<link rel="stylesheet" href="{% static 'assets/css/pdfstyle.css' %}"/>
     <script src="{% static 'assets/js/jquery.min.js' %}"></script>
     <script src="{% static 'assets/js/metro.js' %}"></script>
     <script src="{% static 'assets/js/jquery.dataTables.min.js' %}"></script>
 	<script src="{% static 'assets/js/pdfobject.js' %}"></script>
-	
+	<script src="{% static 'assets/js/ttw-document-viewer.min.js' %}"></script>
+	<script src="{% static 'assets/js/yepnope.1.5.3-min.js' %}"></script>
     <style>
         html, body {
             height: 100%;
@@ -84,9 +86,9 @@
 <body class="bg-steel">
     <div class="app-bar fixed-top green ribbed-lime" data-role="appbar">
         <div class="app-bar-element place-left" onclick="sideonoff()">
-            <span class="mif-menu"></span>
+            <span id="toggle-tiles-dropdown" class="mif-apps mif-2x"></span>
         </div>
-        <a class="app-bar-element branding" href="/" style="padding-left:54px;padding-right:55px">
+        <a class="app-bar-element branding" href="/" style="padding-left:47px;padding-right:48px">
         	<img width="45" style="margin-right:20px" src="{% static 'assets/image/wiltse_mini.png' %}">WiltseNet
         </a>
         <span class="app-bar-divider"></span>
@@ -135,6 +137,7 @@
             <span class="toggle" ><span class="mif-menu"></span>SideBar</span>
         </div>
         -->
+        
     </div>
 
     <div class="page-content">
@@ -145,9 +148,9 @@
                     {% for docudata in list %}
                         <li>
                         	<a href="#" onclick="viewnotidata({{ docudata.num }})">
-                            	<span class="mif-apps icon"></span>
+                            	<span class="mif-file-pdf icon"></span>
                             	<span class="counter">{{docudata.code.codename}}</span>
-                            	<span class="title">{{docudata.title}}</span>
+                            	<span class="title" style="width:200px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">{{docudata.title}}</span>
                         	</a>
                         </li>
                     {% endfor %}
@@ -172,10 +175,14 @@
                             	
                             	if(v['document']){
                             		//alert(v['document']);
-                            		
-                            		//PDFObject.embed("/uploads/content/테스트%20123123/AStar-Algorithm.pdf", "#contbox");
-                            		//$('#contbox').html("<embed width='100%' height='100%' src='/uploads/"+v['document']+"' type='application/pdf'>");
-                            		$('#contbox').html("<iframe width='100%' height='100%' ALLOWTRANSPARENCY='true' src='/uploads/"+v['document']+"#view=FitH&toolbar=0'></iframe>");
+                            		var loadpdf= '192.168.6.155:8000/uploads/'+v['document'];
+                            		var viewer = new DocumentViewer({
+                                        $anchor: $('#contbox'),
+                                        width:500
+                                    });
+									
+                                    viewer.load('192.168.6.155:8000/uploads/'+v['document']);
+
                             	}
 							});
 
@@ -189,23 +196,27 @@
 
                 <div class="cell auto-size padding20 bg-white" id="cell-content">
                     <div>
+                    <button class="button rounded bg-violet fg-white" onclick="javascript:location.href='/document/99'">미션&비전/환자권리와의무</button>
                     <button class="button rounded bg-green fg-white" onclick="javascript:location.href='/document/100'">안전보장활동</button>
-                    <button class="button rounded bg-darkIndigo fg-white" onclick="javascript:location.href='/document/101'">진료전달체계와 평가</button>
-                    <button class="button rounded bg-red fg-white" onclick="javascript:location.href='/document/102'">환자진료</button>
-                    <button class="button rounded bg-blue fg-white" onclick="javascript:location.href='/document/103'">수술 및 마취진정관리</button>
-                    <button class="button rounded bg-pink fg-white" onclick="javascript:location.href='/document/104">의약품 관리</button>
-                    <button class="button rounded bg-amber fg-white" onclick="javascript:location.href='/document/105">환자권리존중 및 보호</button>
+                    <button class="button rounded bg-teal fg-white" onclick="javascript:location.href='/document/101'">지속적 질 향상</button>
+                    <button class="button rounded bg-darkIndigo fg-white" onclick="javascript:location.href='/document/102'">진료전달체계와 평가</button>
+                    <button class="button rounded bg-red fg-white" onclick="javascript:location.href='/document/103'">환자진료</button>
                     </div>
                     <div>
-                    <button class="button rounded bg-darkCyan fg-white" onclick="javascript:location.href='/document/106">경영 및 조직운영</button>
-                    <button class="button rounded bg-darkBrown fg-white" onclick="javascript:location.href='/document/107">인적자원 관리</button>
-                    <button class="button rounded bg-darkEmerald fg-white" onclick="javascript:location.href='/document/108">감염관리</button>
-                    <button class="button rounded bg-lightRed fg-white" onclick="javascript:location.href='/document/109">안전한 시설 및 환경관리</button>
-                    <button class="button rounded bg-lightOrange fg-white" onclick="javascript:location.href='/document/110">의료정보/의무기록관리</button>
+                    <button class="button rounded bg-blue fg-white" onclick="javascript:location.href='/document/104'">수술 및 마취진정관리</button>
+                    <button class="button rounded bg-pink fg-white" onclick="javascript:location.href='/document/105'">의약품 관리</button>
+                    <button class="button rounded bg-amber fg-white" onclick="javascript:location.href='/document/106'">환자권리존중 및 보호</button>
+                    <button class="button rounded bg-darkCyan fg-white" onclick="javascript:location.href='/document/107'">경영 및 조직운영</button>
+                    </div>
+                    <div>
+                    <button class="button rounded bg-darkEmerald fg-white" onclick="javascript:location.href='/document/109'">감염관리</button>
+                    <button class="button rounded bg-lightRed fg-white" onclick="javascript:location.href='/document/110'">안전한 시설 및 환경관리</button>
+                    <button class="button rounded bg-lightOrange fg-white" onclick="javascript:location.href='/document/111'">의료정보/의무기록관리</button>
+                    <button class="button rounded bg-dark fg-white" onclick="javascript:location.href='/document/120'">부록/인증시 주의사항</button>
                     </div>
                     <hr class="thin bg-grayLighter">
                     
-                    <div id=contbox >
+                    <div id=contbox style="">
                     	
 
  
