@@ -81,7 +81,7 @@
 	width:170px;
 }
 </style>
-<body class="bg-steel" style="background-color:transparent">
+<body class="bg-steel" style="background-color:transparent" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
     <div class="app-bar fixed-top orange ribbed-amber" data-role="appbar">
     	<div class="app-bar-element place-left" onclick="sideonoff()">
             <span id="toggle-tiles-dropdown" class="mif-apps mif-2x"></span>
@@ -173,7 +173,7 @@
                             		
                             		//PDFObject.embed("/uploads/content/테스트%20123123/AStar-Algorithm.pdf", "#contbox");
                             		//$('#contbox').html("<embed width='100%' height='100%' src='/uploads/"+v['document']+"' type='application/pdf'>");
-                            		$('#contbox').html("<iframe width='100%' height='100%' ALLOWTRANSPARENCY='true' src='/uploads/"+v['document']+"#view=FitH&toolbar=0'></iframe>");
+                            		$('#contbox').html("<iframe oncontextmenu='return false' ondragstart='return false' onselectstart='return false' width='100%' height='100%' ALLOWTRANSPARENCY='true' frameborder='0' src='/uploads/"+v['document']+"#view=FitH&toolbar=0&embedded=true'></iframe>");
                             	}
 							});
 
