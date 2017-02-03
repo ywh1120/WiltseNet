@@ -1,0 +1,19 @@
+
+{% extends 'index.html' %}
+{{ block.super }}
+
+	{% block content2 %}				
+				<div class="cell auto-size padding20 bg-white" id="cell-content">
+                    <h1 class="text-light"><label id="titlebox">{{ view.title }}</label>
+	                    <span class="place-right" style="font-size:20px;">
+		                    <label id="writer">{{ view.writer }}</label>
+		                    <br>
+		                    <label id="date">{{ view.date }}</label>
+	                    </span>
+                    </h1>
+                    <hr class="thin bg-grayLighter">
+                    <div id=contbox>{{ view.content }}</div>
+                    <hr class="thin bg-grayLighter">
+                    <div id="filebox">{{ view.uploadfile }}</div>
+                </div>
+	{% endblock  %}                

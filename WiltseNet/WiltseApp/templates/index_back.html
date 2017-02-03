@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Metro, a sleek, intuitive, and powerful framework for faster and easier web development for Windows Metro Style.">
+    <meta name="keywords" content="HTML, CSS, JS, JavaScript, framework, metro, front-end, frontend, web development">
+    <meta name="author" content="Sergey Pimenov and Metro UI CSS contributors">
+	{% load static %}
+    <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
+
+    <title>WiltseNet</title>
+	
+    
+	<link rel="stylesheet" href="{% static 'assets/css/metro.css' %}"/>
+	<link rel="stylesheet" href="{% static 'assets/css/metro-icons.css' %}"/>
+	<link rel="stylesheet" href="{% static 'assets/css/metro-responsive.css' %}"/>
+	<link rel="stylesheet" href="{% static 'assets/css/metro-schemes.css' %}"/>
+	<link rel="stylesheet" href="{% static 'assets/css/metro-colors.css' %}"/>
+	<link rel="stylesheet" href="{% static 'assets/css/metro-rtl.css' %}"/>
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/metro.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.dataTables.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+	<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+	
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+        }
+        .page-content {
+            padding-top: 3.125rem;
+            min-height: 100%;
+            height: 100%;
+        }
+        .table .input-control.checkbox {
+            line-height: 1;
+            min-height: 0;
+            height: auto;
+        }
+
+        @media screen and (max-width: 800px){
+            #cell-sidebar {
+                flex-basis: 52px;
+            }
+            #cell-content {
+                flex-basis: calc(100% - 52px);
+            }
+        }
+    </style>
+
+    <script>
+    
+        function pushMessage(t){
+            var mes = 'Info|Implement independently';
+            $.Notify({
+                caption: mes.split("|")[0],
+                content: mes.split("|")[1],
+                type: t
+            });
+        }
+
+        $(function(){
+            $('.sidebar').on('click', 'li', function(){
+                if (!$(this).hasClass('active')) {
+                    $('.sidebar li').removeClass('active');
+                    $(this).addClass('active');
+                }
+            })
+        })
+        
+        function sideonoff(){
+        	//toggleMetroCharm(el[, position]);
+        	//hideMetroCharm(el);
+			$('#cell-sidebar').toggle()
+			
+		}
+    </script>
+</head>
+<style type="text/css">
+.app-bar-menu a{
+	text-align:center;
+	width:170px;
+}
+</style>
+<body class="bg-steel">
+    <div class="app-bar fixed-top Navy ribbed-blue" data-role="appbar">
+        
+        <div class="app-bar-element place-left" onclick="sideonoff()">
+            <span id="toggle-tiles-dropdown" class="mif-apps mif-2x"></span>
+        </div>
+        
+        <a class="app-bar-element branding" href="/" style="padding-left:47px;padding-right:48px">
+        	<img width="45" style="margin-right:20px" src="{% static 'assets/image/wiltse_mini.png' %}">WiltseNet
+        </a>
+        <span class="app-bar-divider"></span>
+        <ul class="app-bar-menu">
+            <li><a href="">공지사항</a></li>
+            <li>
+                <a href="/document/99">핸드북</a>
+                <!-- <ul class="d-menu" data-role="dropdown">
+                    <li><a href="/document/100">안전보장활동</a></li>
+                    <li><a href="/document/101">지속적 질 향상</a></li>
+                    <li><a href="/document/102">진료전달체계와 평가</a></li>
+                    <li><a href="/document/103">환자진료</a></li>
+                    <li><a href="/document/104">수술 및 마취진정관리</a></li>
+                    <li><a href="/document/105">의약품 관리</a></li>
+                    <li><a href="/document/106">환자권리존중 및 보호</a></li>
+                    <li><a href="/document/107">경영 및 조직운영</a></li>
+                    <li><a href="/document/108">인적자원 관리</a></li>
+                    <li><a href="/document/109">감염관리</a></li>
+                    <li><a href="/document/110">안전한 시설 및 환경관리</a></li>
+                    <li><a href="/document/111">의료정보/의무기록관리</a></li>
+                    
+                </ul>
+                -->
+            </li>
+            <li ><a href="/document2/100">규정</a></li>
+            <li>
+            	<a href="/commission/200">위원회 게시판</a>
+            	<!-- <ul class="d-menu" data-role="dropdown">
+            		<li><a href="">경영위원회</a></li>
+            		<li><a href="">감염관리위원회</a></li>
+            		<li><a href="">시설환경안전관리위원회</a></li>
+            		<li><a href="">QPS위원회</a></li>
+            		<li><a href="">의약품관리</a></li>
+            		<li><a href="">윤리위원회</a></li>
+            		<li><a href="">인사위원회</a></li>
+            		<li><a href="">의료기기심의위원회</a></li>
+            		<li><a href="">개인정보보호위원회</a></li>
+            		<li><a href="">의무기록위원회</a></li>
+            		<li><a href="">적정진료위원회</a></li>
+            	</ul> -->
+            </li>
+        </ul>
+		{% if user.is_authenticated %}
+       
+       <div class="app-bar-element place-right">
+          <a href="{% url 'logout' %}?next=/" class="toggle fg-white"><span class="mif-exit"></span> Logout</a>
+       </div>
+       <div class="app-bar-element place-right" onclick="javascript:$('#cell-content').css('display','none');$('#cell-write-content').css('display','inline');">
+       		<a class="toggle fg-white"><span class="mif-pencil"></span> Write</a>
+       </div>
+       {% else %}
+       <div class="app-bar-element place-right">
+          <a class="dropdown-toggle fg-white"><span class="mif-enter"></span> Login</a>
+          <div class="app-bar-drop-container bg-white fg-dark place-right"
+                  data-role="dropdown" data-no-close="true">
+              <div class="padding20">
+                  <form method="post" action="{% url 'login' %}">
+                  {% csrf_token %}
+                      <h4 class="text-light">Login to service...</h4>
+                      <div class="input-control text">
+                          <span class="mif-user prepend-icon"></span>
+                          <input type="text" name="username" id="username"/>
+                      </div>
+                      <div class="input-control text">
+                          <span class="mif-lock prepend-icon"></span>
+                          <input type="password" name="pwd" id="pwd"/>
+                      </div>
+                      <label class="input-control checkbox small-check">
+                          <input type="checkbox">
+                          <span class="check"></span>
+                          <span class="caption">Remember me</span>
+                      </label>
+                      <div class="form-actions">
+                          <button type="submit" class="button">Login</button>
+                          <button type="button" onclick="javascript:$('#username').val('');$('#pwd').val('')" class="button link">Cancel</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+       </div>
+       
+       {% endif %}
+    </div>
+
+    <div class="page-content">
+        <div class="flex-grid no-responsive-future" style="height: 100%;">
+            <div class="row" style="height: 100%">
+                <div class="cell size-x300 bg-blue" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
+                    <ul class="sidebar bg-blue">
+                    {% for notidata in list %}
+                        <li>
+                        	<a href="#" onclick="viewnotidata({{ notidata.num }})">
+                        	{% if notidata.code.codenumber == 10 %}
+                            	<span class="mif-broadcast icon"></span>
+                            {% elif notidata.code.codenumber == 11 %}
+                            	<span class="mif-injection icon"></span>
+                            {% elif notidata.code.codenumber == 12 %}
+                            	<span class="mif-stethoscope icon"></span>
+                            {% elif notidata.code.codenumber == 13 %}
+                            	<span class="mif-wrench icon"></span>
+                            {% elif notidata.code.codenumber == 14 %}
+                            	<span class="mif-justice icon"></span>
+                            {% endif %}
+                            	<span class="counter">{{ notidata.date }}</span>
+                            	<span class="title" style="width:200px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">{{ notidata.title }}</span>
+                        	</a>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                    <div class="pagination" align="center" >
+					    <span class="step-links">
+					        {% if list.has_previous %}
+					            <button onclick="location.href='?page={{ list.previous_page_number }}'" class="button square-button">&lt;</button>
+					        {% endif %}
+							
+					        <button class="button"><span class="current">
+					        
+					            	{{ list.number }} OF {{ list.paginator.num_pages }}
+					            	
+					        </span></button>
+					
+					        {% if list.has_next %}
+					            <button onclick="location.href='?page={{ list.next_page_number }}'" class="button square-button">&gt;</button>
+					        {% endif %}
+					    </span>
+					</div>
+                    
+                </div>
+                <script>
+                function viewnotidata(num){
+                	//alert(num);
+                	
+	                $('#titlebox').html('');
+	                $('#writer').html('');
+					$('#date').html('');
+					$('#contbox').html('');
+                    $('#filebox').html('');
+                	
+                	$.ajax({
+                        url: "/noticont/",
+                        type: "POST",
+                        data: {
+                            'num': num
+                        },
+                        dataType:'json',
+                        success: function (response) {
+                        	$('#cell-content').css('display','inline');
+                        	$('#cell-write-content').css('display','none');
+                            $.each(response,function(i,v){
+                            	
+                            	if(v['title'])
+	                  				$('#titlebox').html(v['title']);
+                            	if(v['writer'])
+	                  				$('#writer').html(v['writer']);
+                            	if(v['date'])
+									$('#date').html(v['date']);
+                            	if(v['content'])
+									$('#contbox').html(v['content']);
+                            	if(v['uploadfile'])
+                            		$('#filebox').html("첨부파일 : "+"<a href='/uploads/"+v['uploadfile']+"'>"+v['uploadfile']+"</a>");
+                            	else
+                            		$('#filebox').html("");
+							});
+
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    });
+                }
+                </script>
+                <!-- 공지사항 보는 페이지 -->
+                <div class="cell auto-size padding20 bg-white" id="cell-content" 
+                style="display:none">
+                    <h1 class="text-light"><label id="titlebox">윌스 공지사항</label>
+	                    <span class="place-right" style="font-size:20px;">
+		                    <label id="writer"></label>
+		                    <br>
+		                    <label id="date"></label>
+	                    </span>
+                    </h1>
+                    <hr class="thin bg-grayLighter">
+                    <div id=contbox></div>
+                    <hr class="thin bg-grayLighter">
+                    <div id="filebox"></div>
+                </div>
+                <!-- 글쓰기 페이지 -->
+                <div class="cell auto-size padding20 bg-white" id="cell-write-content" 
+                style="display:none">
+    				<form data-role="validator" action="/notice_write/" method="post" enctype="multipart/form-data">
+    				{% csrf_token %}
+	                    <h1 class="text-light"><label id="titlebox">공지사항 글쓰기</label></h1>
+	                    <hr class="thin bg-grayLighter">
+	                    <h5 class="text-light"><label>제목</label></h5>
+	                    <div class="input-control text">
+						    <input id="titlebox" name="titlebox"
+						    data-validate-func="required"
+							data-validate-hint="제목을 입력하세요."
+						    type="text">
+						    <span class="input-state-error mif-warning"></span>
+							<span class="input-state-success mif-checkmark"></span>
+						</div>
+	                    <h5 class="text-light"><label>내용</label></h5>
+	                    <div class="input-control textarea">
+						    <textarea name="writecontent" id="writecontent"></textarea>
+						</div>
+						<h5 class="text-light"><label>파일첨부</label></h5>
+						<div class="input-control file" data-role="input">
+						    <input id="uploadfile" name="uploadfile" type="file" value="">
+						    <button class="button"><span class="mif-folder"></span></button>
+						</div>
+						<h5 class="text-light"><label>분류</label></h5>
+						<div class="input-control select">
+						    <select id="cate" name="cate">
+						    {% for cate in category %}
+						        <option value="{{ cate.codenumber }}">{{ cate.codename }}</option>					    
+						    {% endfor %}
+						    </select>
+						</div>
+						<div>
+						<input type="hidden" name="writername" id="writername" value="{{ user.get_full_name }}">
+						<hr class="thin bg-grayLighter">
+						<input type="submit" value="등록">
+						</div>
+					</form>
+					
+					<script>
+					CKEDITOR.replace('writecontent')
+					</script>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

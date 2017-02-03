@@ -1,0 +1,617 @@
+<title></title>
+<TABLE BORDER=1 WIDTH=1045>
+
+<TR><TD WIDTH=22><TD WIDTH=44><TD WIDTH=22><TD WIDTH=66><TD WIDTH=11><TD WIDTH=33><TD WIDTH=33><TD WIDTH=77><TD WIDTH=132><TD WIDTH=121><TD WIDTH=66><TD WIDTH=55><TD WIDTH=44><TD WIDTH=77><TD WIDTH=110><TD WIDTH=132></TR>
+<TR>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TH COLSPAN=3>의사별 외래/입원 수익금</TH>
+
+
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TH ALIGN=left COLSPAN=2>기준일자: </TH>
+
+    <TH>20160901</TH>
+    <TH ALIGN=left>-</TH>
+    <TH ALIGN=left COLSPAN=2>20160930</TH>
+
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TH ALIGN=right>출력시간:</TH>
+    <TH ALIGN=left>2016.10.15 09:15:02</TH>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TH COLSPAN=3 ROWSPAN=2><BR>진료의사</TH>
+
+
+    <TH COLSPAN=2 ROWSPAN=2><BR>구 분</TH>
+
+    <TH COLSPAN=9>환    자    유    형  </TH>
+
+
+
+
+
+
+
+
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+
+
+
+
+
+    <TH COLSPAN=2 ROWSPAN=2>보    험</TH>
+
+    <TH ROWSPAN=2>보    호</TH>
+    <TH ROWSPAN=2>산    재</TH>
+    <TH COLSPAN=2 ROWSPAN=2>자    보</TH>
+
+    <TH COLSPAN=2 ROWSPAN=2>일    반</TH>
+
+    <TH ROWSPAN=2>소    계</TH>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TH COLSPAN=3 ROWSPAN=2>합    계</TH>
+
+
+    <TH COLSPAN=2 ROWSPAN=2></TH>
+
+
+
+
+
+
+
+
+
+
+    <TH ALIGN=right ROWSPAN=2>1,230,841,601</TH>
+</TR>
+<TR>
+    <TD></TD>
+
+
+
+
+
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+
+</TR>
+<TR>
+    <TD></TD>
+    <TD>NS01</TD>
+    <TD COLSPAN=2>최경철</TD>
+
+    <TD ALIGN=center COLSPAN=2>외래</TD>
+
+    <TD ALIGN=right COLSPAN=2>66,231,126</TD>
+
+    <TD ALIGN=right>288,460</TD>
+    <TD ALIGN=right>60,704</TD>
+    <TD ALIGN=right COLSPAN=2>2,830,514</TD>
+
+    <TD ALIGN=right COLSPAN=2>647,692</TD>
+
+    <TD ALIGN=right>70,058,496</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>NS01</TD>
+    <TD COLSPAN=2>최경철</TD>
+
+    <TD ALIGN=center COLSPAN=2>입원</TD>
+
+    <TD ALIGN=right COLSPAN=2>150,262,423</TD>
+
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right>150,262,423</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>NS02</TD>
+    <TD COLSPAN=2>이동찬</TD>
+
+    <TD ALIGN=center COLSPAN=2>외래</TD>
+
+    <TD ALIGN=right COLSPAN=2>79,978,985</TD>
+
+    <TD ALIGN=right>2,423,253</TD>
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right COLSPAN=2>3,546,496</TD>
+
+    <TD ALIGN=right COLSPAN=2>929,188</TD>
+
+    <TD ALIGN=right>86,877,922</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>NS02</TD>
+    <TD COLSPAN=2>이동찬</TD>
+
+    <TD ALIGN=center COLSPAN=2>입원</TD>
+
+    <TD ALIGN=right COLSPAN=2>196,383,845</TD>
+
+    <TD ALIGN=right>4,534,910</TD>
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right COLSPAN=2>179,146</TD>
+
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right>201,097,901</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>NS03</TD>
+    <TD COLSPAN=2>신승호</TD>
+
+    <TD ALIGN=center COLSPAN=2>외래</TD>
+
+    <TD ALIGN=right COLSPAN=2>65,955,082</TD>
+
+    <TD ALIGN=right>2,133,700</TD>
+    <TD ALIGN=right>35,037</TD>
+    <TD ALIGN=right COLSPAN=2>6,195,837</TD>
+
+    <TD ALIGN=right COLSPAN=2>330,000</TD>
+
+    <TD ALIGN=right>74,649,656</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>NS03</TD>
+    <TD COLSPAN=2>신승호</TD>
+
+    <TD ALIGN=center COLSPAN=2>입원</TD>
+
+    <TD ALIGN=right COLSPAN=2>114,518,146</TD>
+
+    <TD ALIGN=right>18,368</TD>
+    <TD ALIGN=right>4,479,468</TD>
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right>119,015,982</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>NS06</TD>
+    <TD COLSPAN=2>심형기</TD>
+
+    <TD ALIGN=center COLSPAN=2>외래</TD>
+
+    <TD ALIGN=right COLSPAN=2>75,088,544</TD>
+
+    <TD ALIGN=right>1,582,530</TD>
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right COLSPAN=2>1,676,883</TD>
+
+    <TD ALIGN=right COLSPAN=2>138,000</TD>
+
+    <TD ALIGN=right>78,485,957</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>NS06</TD>
+    <TD COLSPAN=2>심형기</TD>
+
+    <TD ALIGN=center COLSPAN=2>입원</TD>
+
+    <TD ALIGN=right COLSPAN=2>68,981,249</TD>
+
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right>68,981,249</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>NS07</TD>
+    <TD COLSPAN=2>이정현</TD>
+
+    <TD ALIGN=center COLSPAN=2>입원</TD>
+
+    <TD ALIGN=right COLSPAN=2>2,538,496</TD>
+
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right>2,538,496</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>OS01</TD>
+    <TD COLSPAN=2>현봉헌</TD>
+
+    <TD ALIGN=center COLSPAN=2>외래</TD>
+
+    <TD ALIGN=right COLSPAN=2>34,881,078</TD>
+
+    <TD ALIGN=right>730,540</TD>
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right COLSPAN=2>279,256</TD>
+
+    <TD ALIGN=right COLSPAN=2>252,875</TD>
+
+    <TD ALIGN=right>36,143,749</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>OS01</TD>
+    <TD COLSPAN=2>현봉헌</TD>
+
+    <TD ALIGN=center COLSPAN=2>입원</TD>
+
+    <TD ALIGN=right COLSPAN=2>37,390,812</TD>
+
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right>37,390,812</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>OS02</TD>
+    <TD COLSPAN=2>김성윤</TD>
+
+    <TD ALIGN=center COLSPAN=2>외래</TD>
+
+    <TD ALIGN=right COLSPAN=2>39,075,588</TD>
+
+    <TD ALIGN=right>706,697</TD>
+    <TD ALIGN=right>82,331</TD>
+    <TD ALIGN=right COLSPAN=2>1,644,460</TD>
+
+    <TD ALIGN=right COLSPAN=2>282,958</TD>
+
+    <TD ALIGN=right>41,792,034</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>OS02</TD>
+    <TD COLSPAN=2>김성윤</TD>
+
+    <TD ALIGN=center COLSPAN=2>입원</TD>
+
+    <TD ALIGN=right COLSPAN=2>73,769,522</TD>
+
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right>73,769,522</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>OS03</TD>
+    <TD COLSPAN=2>손원수</TD>
+
+    <TD ALIGN=center COLSPAN=2>외래</TD>
+
+    <TD ALIGN=right COLSPAN=2>45,189,004</TD>
+
+    <TD ALIGN=right>675,790</TD>
+    <TD ALIGN=right>10,750</TD>
+    <TD ALIGN=right COLSPAN=2>1,782,410</TD>
+
+    <TD ALIGN=right COLSPAN=2>578,628</TD>
+
+    <TD ALIGN=right>48,236,582</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>OS03</TD>
+    <TD COLSPAN=2>손원수</TD>
+
+    <TD ALIGN=center COLSPAN=2>입원</TD>
+
+    <TD ALIGN=right COLSPAN=2>118,152,822</TD>
+
+    <TD ALIGN=right>2,600,101</TD>
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right>120,752,923</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>IM02</TD>
+    <TD COLSPAN=2>장은철</TD>
+
+    <TD ALIGN=center COLSPAN=2>외래</TD>
+
+    <TD ALIGN=right COLSPAN=2>12,587,663</TD>
+
+    <TD ALIGN=right>433,888</TD>
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right>13,021,551</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>IM02</TD>
+    <TD COLSPAN=2>장은철</TD>
+
+    <TD ALIGN=center COLSPAN=2>입원</TD>
+
+    <TD ALIGN=right COLSPAN=2>1,967,229</TD>
+
+    <TD ALIGN=right>9,020</TD>
+    <TD ALIGN=right>18,040</TD>
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right>1,994,289</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>AN04</TD>
+    <TD COLSPAN=2>이지용</TD>
+
+    <TD ALIGN=center COLSPAN=2>외래</TD>
+
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right></TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>AN04</TD>
+    <TD COLSPAN=2>이지용</TD>
+
+    <TD ALIGN=center COLSPAN=2>입원</TD>
+
+    <TD ALIGN=right COLSPAN=2>16,362,861</TD>
+
+    <TD ALIGN=right>195,782</TD>
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right COLSPAN=2>9,020</TD>
+
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right>16,567,663</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>AN05</TD>
+    <TD COLSPAN=2>천무영</TD>
+
+    <TD ALIGN=center COLSPAN=2>입원</TD>
+
+    <TD ALIGN=right COLSPAN=2>20,686,511</TD>
+
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right>20,686,511</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>AN94</TD>
+    <TD COLSPAN=2>정인영</TD>
+
+    <TD ALIGN=center COLSPAN=2>입원</TD>
+
+    <TD ALIGN=right COLSPAN=2>2,720,247</TD>
+
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right>514,486</TD>
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right>3,234,733</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>AN95</TD>
+    <TD COLSPAN=2>경규동</TD>
+
+    <TD ALIGN=center COLSPAN=2>입원</TD>
+
+    <TD ALIGN=right COLSPAN=2>36,080</TD>
+
+    <TD ALIGN=right>9,020</TD>
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right>45,100</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>HC98</TD>
+    <TD COLSPAN=2>장은철HC</TD>
+
+    <TD ALIGN=center COLSPAN=2>외래</TD>
+
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right COLSPAN=2>2,660,066</TD>
+
+    <TD ALIGN=right>2,660,066</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>UR01</TD>
+    <TD COLSPAN=2>박상근</TD>
+
+    <TD ALIGN=center COLSPAN=2>외래</TD>
+
+    <TD ALIGN=right COLSPAN=2>7,633,736</TD>
+
+    <TD ALIGN=right>250,222</TD>
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right COLSPAN=2>2,059,200</TD>
+
+    <TD ALIGN=right>9,943,158</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD></TD>
+    <TD>UR01</TD>
+    <TD COLSPAN=2>박상근</TD>
+
+    <TD ALIGN=center COLSPAN=2>입원</TD>
+
+    <TD ALIGN=right COLSPAN=2>450,552</TD>
+
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right></TD>
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right COLSPAN=2></TD>
+
+    <TD ALIGN=right>450,552</TD>
+    <TD></TD>
+</TR>
+</TABLE>

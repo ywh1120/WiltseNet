@@ -29,8 +29,22 @@ def nu3():
         else:
             return no + 1
 
+def nu4():
+        no = Code.objects.count()
+        if no == None:
+            return 1
+        else:
+            return no + 1
+
+def nu5():
+        no = Commission.objects.count()
+        if no == None:
+            return 1
+        else:
+            return no + 1
+
 class Code(models.Model):
-    codeid = models.IntegerField(default=1)
+    codeid = models.IntegerField(default=nu4)
     codename = models.CharField(('코드이름'),max_length=50)
     where = models.CharField(('코드분류'),max_length=50)
     codenumber = models.IntegerField(('코드 구분 번호'),default=1)
@@ -43,7 +57,7 @@ class Notice(models.Model):
     content = RichTextField(('내용'))
     uploadfile = models.FileField(('첨부파일'),upload_to=generate_filename,null=True,blank=True)
     writer = models.CharField(('작성자'),max_length=200)
-    date = models.DateField()
+    date = models.DateTimeField(auto_now_add=True)
     code = models.ForeignKey(Code,null=True)
     def __unicode__(self):
         return self.title
@@ -68,12 +82,12 @@ class Regulation(models.Model):
         return self.title
 
 class Commission(models.Model):
-    num = models.IntegerField(default=1)
+    num = models.IntegerField(default=nu5)
     title = models.CharField(('제목'),max_length=200)
     content = RichTextField(('내용'))
     uploadfile = models.FileField(('첨부파일'),upload_to=generate_filename,null=True,blank=True)
     writer = models.CharField(('작성자'),max_length=200)
-    date = models.DateField()
+    date = models.DateTimeField(auto_now_add=True)
     code = models.ForeignKey(Code,null=True)
     def __unicode__(self):
         return self.title

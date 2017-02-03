@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+
+{% block content %}
+                <div class="cell size-x300 bg-mauve" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
+                    <ul class="sidebar bg-mauve">
+                        <li {% if cateid == '200' %}class="active"{% endif %}>
+                        	<a href="/commission/200">
+                            	<span class="mif-justice icon"></span>
+                            	<span class="counter"></span>
+                            	<span class="title" style="width:200px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">경영위원회</span>
+                        	</a>
+                        </li>
+                    	<li {% if cateid == '201' %}class="active"{% endif %}>
+                        	<a href="/commission/201">
+                            	<span class="mif-justice icon"></span>
+                            	<span class="counter"></span>
+                            	<span class="title" style="width:200px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">감염관리위원회</span>
+                        	</a>
+                        </li>
+                        <li {% if cateid == '202' %}class="active"{% endif %}>
+                        	<a href="/commission/202">
+                            	<span class="mif-justice icon"></span>
+                            	<span class="counter"></span>
+                            	<span class="title" style="width:200px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">시설환경안전관리위원회</span>
+                        	</a>
+                        </li>
+                        <li {% if cateid == '203' %}class="active"{% endif %}>
+                        	<a href="/commission/203">
+                            	<span class="mif-justice icon"></span>
+                            	<span class="counter"></span>
+                            	<span class="title" style="width:200px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">QPS위원회</span>
+                        	</a>
+                        </li>
+                        <li {% if cateid == '204' %}class="active"{% endif %}>
+                        	<a href="/commission/204">
+                            	<span class="mif-justice icon"></span>
+                            	<span class="counter"></span>
+                            	<span class="title" style="width:200px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">의약품관리</span>
+                        	</a>
+                        </li>
+                        <li {% if cateid == '205' %}class="active"{% endif %}>
+                        	<a href="/commission/205">
+                            	<span class="mif-justice icon"></span>
+                            	<span class="counter"></span>
+                            	<span class="title" style="width:200px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">윤리위원회</span>
+                        	</a>
+                        </li>
+                        <li {% if cateid == '206' %}class="active"{% endif %}>
+                        	<a href="/commission/206">
+                            	<span class="mif-justice icon"></span>
+                            	<span class="counter"></span>
+                            	<span class="title" style="width:200px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">인사위원회</span>
+                        	</a>
+                        </li>
+                        <li {% if cateid == '207' %}class="active"{% endif %}>
+                        	<a href="/commission/207">
+                            	<span class="mif-justice icon"></span>
+                            	<span class="counter"></span>
+                            	<span class="title" style="width:200px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">의료기기심의위원회</span>
+                        	</a>
+                        </li>
+                        <li {% if cateid == '208' %}class="active"{% endif %}>
+                        	<a href="/commission/208">
+                            	<span class="mif-justice icon"></span>
+                            	<span class="counter"></span>
+                            	<span class="title" style="width:200px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">개인정보보호위원회</span>
+                        	</a>
+                        </li>
+                        <li {% if cateid == '209' %}class="active"{% endif %}>
+                        	<a href="/commission/209">
+                            	<span class="mif-justice icon"></span>
+                            	<span class="counter"></span>
+                            	<span class="title" style="width:200px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">의무기록위원회</span>
+                        	</a>
+                        </li>
+                        <li {% if cateid == '210' %}class="active"{% endif %}>
+                        	<a href="/commission/210">
+                            	<span class="mif-justice icon"></span>
+                            	<span class="counter"></span>
+                            	<span class="title" style="width:200px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">적정진료위원회</span>
+                        	</a>
+                        </li>
+                    </ul>
+                </div>
+               
+                <!-- 공지사항 보는 페이지 -->
+                <div class="cell auto-size padding20 bg-white" id="cell-content">
+                	{% if cateid == '200' %}
+                    <h1 class="text-light">경영위원회 게시판</h1>
+                    {% elif cateid == '201' %}
+                    <h1 class="text-light">감염관리위원회 게시판</h1>
+                    {% elif cateid == '202' %}
+                    <h1 class="text-light">시설환경안전관리위원회 게시판</h1>
+                    {% elif cateid == '203' %}
+                    <h1 class="text-light">QPS위원회 게시판</h1>
+                    {% elif cateid == '204' %}
+                    <h1 class="text-light">의약품관리 게시판</h1>
+                    {% elif cateid == '205' %}
+                    <h1 class="text-light">윤리위원회 게시판</h1>
+                    {% elif cateid == '206' %}
+                    <h1 class="text-light">인사위원회 게시판</h1>
+                    {% elif cateid == '207' %}
+                    <h1 class="text-light">의료기기심의위원회 게시판</h1>
+                    {% elif cateid == '208' %}
+                    <h1 class="text-light">개인정보보호위원회 게시판</h1>
+                    {% elif cateid == '209' %}
+                    <h1 class="text-light">의무기록위원회 게시판</h1>
+                    {% elif cateid == '210' %}
+                    <h1 class="text-light">적정진료위원회 게시판</h1>
+                    {% endif %}
+                    <hr class="thin bg-grayLighter">
+                    <table class="dataTable border bordered" data-role="datatable" data-auto-width="false">
+                        <thead>
+                        <tr>
+                            
+                            <td class="sortable-column" style="width: 70px">번호</td>
+                            <td class="sortable-column">제목</td>
+                            <td class="sortable-column" style="width: 100px">작성자</td>
+                            <td class="sortable-column" style="width: 230px">날짜</td>
+                            
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for comm in list %}
+                        <tr>
+                            
+                            <td>{{ comm.num }}</td>
+                            <td>{{ comm.title }}</td>
+                            <td>{{ comm.writer }}</td>
+                            <td>{{ comm.date }}</td>
+                            
+                        </tr>
+                        
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 글쓰기 페이지 -->
+                <div class="cell auto-size padding20 bg-white" id="cell-write-content" 
+                style="display:none">
+    				<form data-role="validator" action="/notice_write/" method="post" enctype="multipart/form-data">
+    				{% csrf_token %}
+	                    <h1 class="text-light"><label id="titlebox">공지사항 글쓰기</label></h1>
+	                    <hr class="thin bg-grayLighter">
+	                    <h5 class="text-light"><label>제목</label></h5>
+	                    <div class="input-control text">
+						    <input id="titlebox" name="titlebox"
+						    data-validate-func="required"
+							data-validate-hint="제목을 입력하세요."
+						    type="text">
+						    <span class="input-state-error mif-warning"></span>
+							<span class="input-state-success mif-checkmark"></span>
+						</div>
+	                    <h5 class="text-light"><label>내용</label></h5>
+	                    <div class="input-control textarea">
+						    <textarea name="writecontent" id="writecontent"></textarea>
+						</div>
+						<h5 class="text-light"><label>파일첨부</label></h5>
+						<div class="input-control file" data-role="input">
+						    <input id="uploadfile" name="uploadfile" type="file">
+						    <button class="button"><span class="mif-folder"></span></button>
+						</div>
+						<h5 class="text-light"><label>분류</label></h5>
+						<div class="input-control select">
+						    <select id="cate" name="cate">
+						    {% for cate in category %}
+						        <option value="{{ cate.codenumber }}">{{ cate.codename }}</option>					    
+						    {% endfor %}
+						    </select>
+						</div>
+						<div>
+						<input type="hidden" name="writername" id="writername" value="{{ user.get_full_name }}">
+						<hr class="thin bg-grayLighter">
+						<input type="submit" value="등록">
+						</div>
+					</form>
+					
+					<script>
+					CKEDITOR.replace('writecontent')
+					</script>
+                </div>
+{% endblock content %}
