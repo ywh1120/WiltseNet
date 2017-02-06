@@ -15,7 +15,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 from datetime import datetime
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+import json
 #from WiltseNet.WiltseApp.models import Notice
 # Create your views here.
 def mainpage(request):
@@ -56,23 +56,34 @@ def login_ajax(request):
 @csrf_exempt
 def notice_write(request):
     if request.method == 'POST':
-        
-        titlebox = request.POST['titlebox']
-        writecontent = request.POST['writecontent']
-        
-        uploadfile1 = request.FILES['uploadfile'] if 'uploadfile' in request.FILES else ''
-        cate = request.POST['cate']
-        writer = request.POST['writername']
-        new_notice = Notice(title = titlebox,writer = writer,content = writecontent,uploadfile = uploadfile1,date = datetime.now(),code = Code.objects.get(codenumber=cate))
-        new_notice.save()    
+        boardnum = request.POST['writenum']
+        if boardnum == '':
+            titleinput = request.POST['titleinput']
+            writecontent = request.POST['writecontent']
+            
+            uploadfile1 = request.FILES['uploadfile'] if 'uploadfile' in request.FILES else ''
+            cate = request.POST['cate']
+            writer = request.POST['writername']
+            new_notice = Notice(title = titleinput,writer = writer,content = writecontent,uploadfile = uploadfile1,date = datetime.now(),code = Code.objects.get(codenumber=cate))
+            new_notice.save()
+        elif boardnum != '':
+            titleinput = request.POST['titleinput']
+            writecontent = request.POST['writecontent']
+            
+            uploadfile1 = request.FILES['uploadfile'] if 'uploadfile' in request.FILES else ''
+            cate = request.POST['cate']
+            writer = request.POST['writername']
+            #new_notice = Notice(title = titleinput,writer = writer,content = writecontent,uploadfile = uploadfile1,date = datetime.now(),code = Code.objects.get(codenumber=cate))
+            #new_notice.save()
+            Notice.objects.filter(num=boardnum).update(title = titleinput,writer = writer,content = writecontent,uploadfile = uploadfile1,date = datetime.now(),code = Code.objects.get(codenumber=cate))
     
     list = Notice.objects.filter().order_by('-num')
     cate = Code.objects.filter(where="공지사항")
-    return render(request,'index.html',{'list':list,'category':cate})
+    return render(request,'index.html',{'list':list,'category':cate,'titlecolor':'1'})
 
 @csrf_exempt
 def contview(request):
-    import json
+    
     getnum = request.POST['num']
     output = Notice.objects.filter(num=getnum)
     data = serializers.serialize('json', output)
@@ -102,7 +113,7 @@ def commisslist(request,category_id):
 
 @csrf_exempt
 def docuview(request):
-    import json
+    
     getnum = request.POST['num']
     output = Handbook.objects.filter(num=getnum)
     data = serializers.serialize('json', output)
@@ -113,7 +124,7 @@ def docuview(request):
 
 @csrf_exempt
 def docu2view(request):
-    import json
+    
     getnum = request.POST['num']
     output = Regulation.objects.filter(num=getnum)
     data = serializers.serialize('json', output)

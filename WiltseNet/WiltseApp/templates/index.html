@@ -65,8 +65,10 @@
                         success: function (response) {
                         	$('#cell-content').css('display','inline');
                         	$('#cell-write-content').css('display','none');
+                        	
                             $.each(response,function(i,v){
-                            	
+                            	if(v['num'])
+                            		$('#contnum').val(v['num']);
                             	if(v['title'])
 	                  				$('#titlebox').html(v['title']);
                             	if(v['writer'])
@@ -79,6 +81,36 @@
                             		$('#filebox').html("첨부파일 : "+"<a href='/uploads/"+v['uploadfile']+"'>"+v['uploadfile']+"</a>");
                             	else
                             		$('#filebox').html("");
+							});
+
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    });
+                }
+                function modidata(){
+                	$.ajax({
+                        url: "/noticont/",
+                        type: "POST",
+                        data: {
+                            'num': $('#contnum').val()
+                        },
+                        dataType:'json',
+                        success: function (response) {
+                        	$('#cell-content').css('display','none');
+                        	$('#cell-write-content').css('display','inline');
+                        	
+                            $.each(response,function(i,v){
+                            	
+                            	if(v['num'])
+                            		$('#writenum').val(v['num']);
+                            	if(v['title'])
+	                  				$('#titleinput').val(v['title']);
+                            	if(v['content'])
+                            		CKEDITOR.instances.writecontent.setData(v['content']);
+                            	if(v['uploadfile'])
+                            		$('#uploadfile').val(v['uploadfile']);
 							});
 
                         },
@@ -102,6 +134,10 @@
                     <div id=contbox></div>
                     <hr class="thin bg-grayLighter">
                     <div id="filebox"></div>
+                    <div>
+                    <input type="hidden" id="contnum" name="contnum" />
+                    <Button class="button" onclick="modidata()" value="수정">수정</Button>
+                    </div>
                 </div>
                 <!-- 글쓰기 페이지  -->
                 <div class="cell auto-size padding20 bg-white" id="cell-write-content" 
@@ -112,7 +148,7 @@
 	                    <hr class="thin bg-grayLighter">
 	                    <h5 class="text-light"><label>제목</label></h5>
 	                    <div class="input-control text">
-						    <input id="titlebox" name="titlebox"
+						    <input id="titleinput" name="titleinput"
 						    data-validate-func="required"
 							data-validate-hint="제목을 입력하세요."
 						    type="text">
@@ -138,6 +174,7 @@
 						</div>
 						<div>
 						<input type="hidden" name="writername" id="writername" value="{{ user.get_full_name }}">
+						<input type="hidden" name="writenum" id="writenum" value="">
 						<hr class="thin bg-grayLighter">
 						<input type="submit" value="등록">
 						</div>

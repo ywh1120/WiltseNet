@@ -78,6 +78,15 @@
 			$('#cell-sidebar').toggle()
 			
 		}
+        
+        function writeclick(){
+        	$('#cell-content').css('display','none');
+        	$('#cell-write-content').css('display','inline');
+        	$('#writenum').val('');
+  			$('#titleinput').val('');
+        	CKEDITOR.instances.writecontent.setData('');
+        	$('#uploadfile').val('');
+        }
     </script>
 </head>
 <style type="text/css">
@@ -148,7 +157,7 @@
        <div class="app-bar-element place-right">
           <a href="{% url 'logout' %}?next=/" class="toggle fg-white"><span class="mif-exit"></span> Logout</a>
        </div>
-       <div class="app-bar-element place-right" onclick="javascript:$('#cell-content').css('display','none');$('#cell-write-content').css('display','inline');">
+       <div class="app-bar-element place-right" onclick="writeclick()">
        		<a class="toggle fg-white"><span class="mif-pencil"></span> Write</a>
        </div>
        {% else %}

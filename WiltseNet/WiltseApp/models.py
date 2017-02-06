@@ -59,6 +59,7 @@ class Notice(models.Model):
     writer = models.CharField(('작성자'),max_length=200)
     date = models.DateTimeField(auto_now_add=True)
     code = models.ForeignKey(Code,null=True)
+    writeid = models.CharField(max_length=50)
     def __unicode__(self):
         return self.title
 
